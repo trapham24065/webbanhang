@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="CSS/Home.css" />
     <link rel="stylesheet" href="CSS/Header.css" />
     <link rel="stylesheet" href="CSS/Slide.css" />
+    <link rel="stylesheet" href="CSS/Product.css" />
     <link rel="stylesheet" href="CSS/Footer.css" />
 </head>
 <body>
@@ -115,7 +116,7 @@
             <!-- Body -->
             <main>
                 <div class="content">
-                    <div class="poster">
+                    <div class="banner">
                         <div class="container">
                             <div class="slideshow-container">
                                 <div class="slide fade">
@@ -129,261 +130,363 @@
                             </div>
                         </div>
                     </div>
-                <!--Women Field-->
-                <div class="content-part">
-                    <div class="content-top">
-                        <div class="content-title">
-                            <h1 class="content-tag hover-red">#forher</h1>
-                            <div class="for-image">
-                                <img src="./Img/women/forwomen.jpg" alt="" class="image" />
-                            </div>
-                        </div>
-                        <div class="content-list">
-                            <!--Women Shirts-->
-                            <div class="product-row">
-                                <asp:ListView ID="WomenShirts" runat="server">
-                                    <ItemTemplate>
-                                        <div class="product">
-                                            <!-- Link tới trang SingleProduct.aspx và thêm QueryString id=id của mặt hàng mình click vào để dùng id đấy lấy dữ liệu từ DS mặt hàng -->
-                                            <!-- Những cái <\% #Eval(...) %> là lấy dữ liệu tương ứng với databind vào -->
-                                            <a href="SingleProduct.aspx?id=<%#Eval("Id") %>">
-                                                <div class="product-top">
-                                                    <img src="<%# Eval("Image")%>" alt="" class="product-image">
-                                                </div>
-                                            </a>
-                                            <div class="product-info">
-                                                <div class="product-left">
-                                                    <h3 class="product-name" id="pName"><%# Eval("Name") %></h3>
-                                                    <h4 class="product-price" id="pPrice"><%# Eval("Price") %></h4>
-                                                </div>
-                                                <div class="product-right">
-                                                    <a href="AddToCart.aspx?id=<%#Eval("Id") %>">
-                                                        <img src="./Img/icon/shopping-cart.png" alt="" class="add-to-cart" style="width: 50%" />
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </ItemTemplate>
-                                </asp:ListView>
-                            </div>
-                            <!--Women Trousers-->
-                            <div class="product-row">
-                                <asp:ListView ID="WomenTrousers" runat="server">
-                                    <ItemTemplate>
-                                        <div class="product">
-                                            <a href="SingleProduct.aspx?id=<%#Eval("Id") %>">
-                                                <div class="product-top">
-                                                    <img src="<%# Eval("Image")%>" alt="" class="product-image">
-                                                </div>
-                                            </a>
-                                            <div class="product-info">
-                                                <div class="product-left">
-                                                    <h3 class="product-name"><%# Eval("Name") %></h3>
-                                                    <h4 class="product-price"><%# Eval("Price") %></h4>
-                                                </div>
-                                                <div class="product-right">
-                                                    <a href="AddToCart.aspx?id=<%#Eval("Id") %>">
-                                                        <img src="./Img/icon/shopping-cart.png" alt="" class="add-to-cart" style="width: 50%" />
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </ItemTemplate>
-                                </asp:ListView>
-                            </div>
-                        </div>
+
+
+
+
+
+                    <div class="super-sale-section">
+    <h1 class="super-sale-title">🔥 SUPER SALE 🔥</h1>
+
+    <!-- Countdown Timer -->
+    <div class="hurry-time">
+        <p>⏳ Hurry! Sale ends in: <span id="countdown"></span></p>
+    </div>
+
+    <div class="content-list">
+        <div class="product-row">
+            <!-- Sản phẩm 1 -->
+            <div class="product">
+                <a href="SingleProduct.aspx?id=1">
+                    <div class="product-top">
+                        <img src="./Img/women/women-shirt-1.jpg" alt="Women Shirt" class="product-image">
                     </div>
-                    <div class="product-poster">
-                        <img src="Img/women/w-poster.png" class="f-poster" />
+                </a>
+                <div class="product-info">
+                    <div class="product-left">
+                        <h3 class="product-name">Women Shirt</h3>
+                        <h4 class="product-price">100,000₫</h4>
+                    </div>
+                    <div class="product-right">
+                        <a href="AddToCart.aspx?id=1">
+                            <img src="./Img/icon/shopping-cart.png" alt="Add to Cart" class="add-to-cart">
+                        </a>
                     </div>
                 </div>
-                <!--Men Field-->
-                <div class="content-part">
-                    <div class="content-top reverse-row">
-                        <div class="content-title">
-                            <h1 class="content-tag hover-red">#forhim</h1>
-                            <div class="for-image">
-                                <img src="./Img/men/formen.jpg" alt="" class="image" />
-                            </div>
-                        </div>
-                        <div class="content-list">
-                            <!-- Men Shirts -->
-                            <div class="product-row">
-                                <asp:ListView ID="MenShirts" runat="server">
-                                    <ItemTemplate>
-                                        <div class="product">
-                                            <a href="SingleProduct.aspx?id=<%#Eval("Id") %>">
-                                                <div class="product-top">
-                                                    <img src="<%# Eval("Image")%>" alt="" class="product-image">
-                                                </div>
-                                            </a>
-                                            <div class="product-info">
-                                                <div class="product-left">
-                                                    <h3 class="product-name"><%# Eval("Name") %></h3>
-                                                    <h4 class="product-price"><%# Eval("Price") %></h4>
-                                                </div>
-                                                <div class="product-right">
-                                                    <a href="AddToCart.aspx?id=<%#Eval("Id") %>">
-                                                        <img src="./Img/icon/shopping-cart.png" alt="" class="add-to-cart" style="width: 50%" />
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </ItemTemplate>
-                                </asp:ListView>
-                            </div>
-                            <!-- Men Trousers -->
-                            <div class="product-row">
-                                <asp:ListView ID="MenTrousers" runat="server">
-                                    <ItemTemplate>
-                                        <div class="product">
-                                            <a href="SingleProduct.aspx?id=<%#Eval("Id") %>">
-                                                <div class="product-top">
-                                                    <img src="<%# Eval("Image")%>" alt="" class="product-image">
-                                                </div>
-                                            </a>
-                                            <div class="product-info">
-                                                <div class="product-left">
-                                                    <h3 class="product-name"><%# Eval("Name") %></h3>
-                                                    <h4 class="product-price"><%# Eval("Price") %></h4>
-                                                </div>
-                                                <div class="product-right">
-                                                    <a href="AddToCart.aspx?id=<%#Eval("Id") %>">
-                                                        <img src="./Img/icon/shopping-cart.png" alt="" class="add-to-cart" style="width: 50%" />
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </ItemTemplate>
-                                </asp:ListView>
-                            </div>
-                        </div>
+            </div>
+
+            <!-- Sản phẩm 2 -->
+            <div class="product">
+                <a href="SingleProduct.aspx?id=2">
+                    <div class="product-top">
+                        <img src="./Img/women/women-shirt-2.jpg" alt="Women Shirt" class="product-image">
                     </div>
-                    <div class="product-poster">
-                        <img src="Img/men/m-poster.png" class="f-poster" />
+                </a>
+                <div class="product-info">
+                    <div class="product-left">
+                        <h3 class="product-name">Women Shirt</h3>
+                        <h4 class="product-price">200,000₫</h4>
+                    </div>
+                    <div class="product-right">
+                        <a href="AddToCart.aspx?id=2">
+                            <img src="./Img/icon/shopping-cart.png" alt="Add to Cart" class="add-to-cart">
+                        </a>
                     </div>
                 </div>
-                <!--Cosmetics Field-->
-                <div class="content-part">
-                    <div class="content-top">
-                        <div class="content-title">
-                            <h1 class="content-tag hover-red">#forlady</h1>
-                            <div class="for-image">
-                                <img src="./Img/cosmetics/forlady.jpg" alt="" class="image" />
-                            </div>
-                        </div>
-                        <div class="content-list">
-                            <!-- Lipsticks -->
-                            <div class="product-row">
-                                <asp:ListView ID="Lipsticks" runat="server">
-                                    <ItemTemplate>
-                                        <div class="product">
-                                            <a href="SingleProduct.aspx?id=<%#Eval("Id") %>">
-                                                <div class="product-top">
-                                                    <img src="<%# Eval("Image")%>" alt="" class="product-image">
-                                                </div>
-                                            </a>
-                                            <div class="product-info" style="border-top: 1px solid #333">
-                                                <div class="product-left">
-                                                    <h3 class="product-name"><%# Eval("Name") %></h3>
-                                                    <h4 class="product-price"><%# Eval("Price") %></h4>
-                                                </div>
-                                                <div class="product-right">
-                                                    <a href="AddToCart.aspx?id=<%#Eval("Id") %>">
-                                                        <img src="./Img/icon/shopping-cart.png" alt="" class="add-to-cart" style="width: 50%" />
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </ItemTemplate>
-                                </asp:ListView>
-                            </div>
-                            <!-- Perfumes -->
-                            <div class="product-row">
-                                <asp:ListView ID="Perfumes" runat="server">
-                                    <ItemTemplate>
-                                        <div class="product">
-                                            <a href="SingleProduct.aspx?id=<%#Eval("Id") %>">
-                                                <div class="product-top">
-                                                    <img src="<%# Eval("Image")%>" alt="" class="product-image">
-                                                </div>
-                                            </a>
-                                            <div class="product-info" style="border-top: 1px solid #333">
-                                                <div class="product-left">
-                                                    <h3 class="product-name"><%# Eval("Name") %></h3>
-                                                    <h4 class="product-price"><%# Eval("Price") %></h4>
-                                                </div>
-                                                <div class="product-right">
-                                                    <a href="AddToCart.aspx?id=<%#Eval("Id") %>">
-                                                        <img src="./Img/icon/shopping-cart.png" alt="" class="add-to-cart" style="width: 50%" />
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </ItemTemplate>
-                                </asp:ListView>
-                            </div>
-                        </div>
+            </div>
+
+            <!-- Sản phẩm 3 -->
+            <div class="product">
+                <a href="SingleProduct.aspx?id=3">
+                    <div class="product-top">
+                        <img src="./Img/women/women-shirt-3.jpg" alt="Women Shirt" class="product-image">
                     </div>
-                    <div class="product-poster">
-                        <img src="Img/cosmetics/c-poster.png" class="f-poster" />
+                </a>
+                <div class="product-info">
+                    <div class="product-left">
+                        <h3 class="product-name">Women Shirt</h3>
+                        <h4 class="product-price">300,000₫</h4>
+                    </div>
+                    <div class="product-right">
+                        <a href="AddToCart.aspx?id=3">
+                            <img src="./Img/icon/shopping-cart.png" alt="Add to Cart" class="add-to-cart">
+                        </a>
                     </div>
                 </div>
+            </div>
+
+            <!-- Sản phẩm 4 -->
+            <div class="product">
+                <a href="SingleProduct.aspx?id=4">
+                    <div class="product-top">
+                        <img src="./Img/women/women-pants-1.jpg" alt="Women Trouser" class="product-image">
+                    </div>
+                </a>
+                <div class="product-info">
+                    <div class="product-left">
+                        <h3 class="product-name">Women Trouser</h3>
+                        <h4 class="product-price">100,000₫</h4>
+                    </div>
+                    <div class="product-right">
+                        <a href="AddToCart.aspx?id=4">
+                            <img src="./Img/icon/shopping-cart.png" alt="Add to Cart" class="add-to-cart">
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
-        </main>
-            <!-- Footer -->
-        <footer class="footer">
-            <div class="footer-top">
-                <div class="footer-body">
-                    <h4 class="font-larger">About Us</h4>
-                    <div class="footer-body hover-red">Infomation</div>
-                    <div class="footer-body hover-red">Store Location</div>
-                </div>
-                <div class="footer-body">
-                    <h4 class="font-larger">Help</h4>
-                    <div class="footer-body hover-red">FAQ</div>
-                    <div class="footer-body hover-red">Return Policy</div>
-                    <div class="footer-body hover-red">Privacy Policy</div>
-                    <div class="footer-body hover-red">Accessibility</div>
-                </div>
-                <div class="footer-body">
-                    <h4 class="font-larger">Account</h4>
-                    <div class="footer-body hover-red">Membership</div>
-                    <div class="footer-body hover-red">Profile</div>
-                    <div class="footer-body hover-red">Coupons</div>
-                </div>
-                <div class="footer-body">
-                    <h4 class="font-larger">Social Account</h4>
-                    <div class="social-img">
-                        <img src="./Img/icon/facebook.png" alt="Facebook" class="social-icon" />
-                        <img src="./Img/icon/instagram.png" alt="Instagram" class="social-icon" />
-                        <img src="./Img/icon/youtube.png" alt="Youtube" class="social-icon" />
-                        <img src="./Img/icon/tik-tok.png" alt="Tiktok" class="social-icon" />
-                    </div>
-                </div>
-            </div>
-            <div class="footer">
-                <div class="footer-bot">
-                    <div class="fbot-head">
-                        <h3 class="blur-text">Copyright @ Khong ai biet gi ca</h3>
-                        <div class="fbot-head-right">
-                            <h3 class="blur-text highlight hover-red">Terms of Use</h3>
-                            <h3 class="blur-text highlight hover-red">Privacy Policy</h3>
+    </div>
+</div>
+
+
+
+
+                    <!--Women Field-->
+                    <div class="content-part">
+                        <div class="content-top">
+                            <div class="content-title">
+                                <h1 class="content-tag hover-red">#forher</h1>
+                                <div class="for-image">
+                                    <img src="./Img/women/forwomen.jpg" alt="" class="image" />
+                                </div>
+                            </div>
+                            <div class="content-list">
+                                <!--Women Shirts-->
+                                <div class="product-row">
+                                    <asp:ListView ID="WomenShirts" runat="server">
+                                        <ItemTemplate>
+                                            <div class="product">
+                                                <!-- Link tới trang SingleProduct.aspx và thêm QueryString id=id của mặt hàng mình click vào để dùng id đấy lấy dữ liệu từ DS mặt hàng -->
+                                                <!-- Những cái <\% #Eval(...) %> là lấy dữ liệu tương ứng với databind vào -->
+                                                <a href="SingleProduct.aspx?id=<%#Eval("Id") %>">
+                                                    <div class="product-top">
+                                                        <img src="<%# Eval("Image")%>" alt="" class="product-image">
+                                                    </div>
+                                                </a>
+                                                <div class="product-info">
+                                                    <div class="product-left">
+                                                        <h3 class="product-name" id="pName"><%# Eval("Name") %></h3>
+                                                        <h4 class="product-price" id="pPrice"><%# Eval("Price") %></h4>
+                                                    </div>
+                                                    <div class="product-right">
+                                                        <a href="AddToCart.aspx?id=<%#Eval("Id") %>">
+                                                            <img src="./Img/icon/shopping-cart.png" alt="" class="add-to-cart" style="width: 50%" />
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </ItemTemplate>
+                                    </asp:ListView>
+                                </div>
+                                <!--Women Trousers-->
+                                <div class="product-row">
+                                    <asp:ListView ID="WomenTrousers" runat="server">
+                                        <ItemTemplate>
+                                            <div class="product">
+                                                <a href="SingleProduct.aspx?id=<%#Eval("Id") %>">
+                                                    <div class="product-top">
+                                                        <img src="<%# Eval("Image")%>" alt="" class="product-image">
+                                                    </div>
+                                                </a>
+                                                <div class="product-info">
+                                                    <div class="product-left">
+                                                        <h3 class="product-name"><%# Eval("Name") %></h3>
+                                                        <h4 class="product-price"><%# Eval("Price") %></h4>
+                                                    </div>
+                                                    <div class="product-right">
+                                                        <a href="AddToCart.aspx?id=<%#Eval("Id") %>">
+                                                            <img src="./Img/icon/shopping-cart.png" alt="" class="add-to-cart" style="width: 50%" />
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </ItemTemplate>
+                                    </asp:ListView>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-poster">
+                            <img src="Img/women/w-poster.png" class="f-poster" />
                         </div>
                     </div>
-                    <div class="fbot-title">Company Name: NameOfCompany</div>
-                    <div class="fbot-title">Enterprise Code: 0123456798</div>
-                    <div class="fbot-title">Address: 96 Dinh Cong</div>
-                    <div class="fbot-title">For any inquiry, please visit our FAQ page</div>
-                    <div class="fbot-title">Working Hours: 6h-22h</div>
+                    <!--Men Field-->
+                    <div class="content-part">
+                        <div class="content-top reverse-row">
+                            <div class="content-title">
+                                <h1 class="content-tag hover-red">#forhim</h1>
+                                <div class="for-image">
+                                    <img src="./Img/men/formen.jpg" alt="" class="image" />
+                                </div>
+                            </div>
+                            <div class="content-list">
+                                <!-- Men Shirts -->
+                                <div class="product-row">
+                                    <asp:ListView ID="MenShirts" runat="server">
+                                        <ItemTemplate>
+                                            <div class="product">
+                                                <a href="SingleProduct.aspx?id=<%#Eval("Id") %>">
+                                                    <div class="product-top">
+                                                        <img src="<%# Eval("Image")%>" alt="" class="product-image">
+                                                    </div>
+                                                </a>
+                                                <div class="product-info">
+                                                    <div class="product-left">
+                                                        <h3 class="product-name"><%# Eval("Name") %></h3>
+                                                        <h4 class="product-price"><%# Eval("Price") %></h4>
+                                                    </div>
+                                                    <div class="product-right">
+                                                        <a href="AddToCart.aspx?id=<%#Eval("Id") %>">
+                                                            <img src="./Img/icon/shopping-cart.png" alt="" class="add-to-cart" style="width: 50%" />
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </ItemTemplate>
+                                    </asp:ListView>
+                                </div>
+                                <!-- Men Trousers -->
+                                <div class="product-row">
+                                    <asp:ListView ID="MenTrousers" runat="server">
+                                        <ItemTemplate>
+                                            <div class="product">
+                                                <a href="SingleProduct.aspx?id=<%#Eval("Id") %>">
+                                                    <div class="product-top">
+                                                        <img src="<%# Eval("Image")%>" alt="" class="product-image">
+                                                    </div>
+                                                </a>
+                                                <div class="product-info">
+                                                    <div class="product-left">
+                                                        <h3 class="product-name"><%# Eval("Name") %></h3>
+                                                        <h4 class="product-price"><%# Eval("Price") %></h4>
+                                                    </div>
+                                                    <div class="product-right">
+                                                        <a href="AddToCart.aspx?id=<%#Eval("Id") %>">
+                                                            <img src="./Img/icon/shopping-cart.png" alt="" class="add-to-cart" style="width: 50%" />
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </ItemTemplate>
+                                    </asp:ListView>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-poster">
+                            <img src="Img/men/m-poster.png" class="f-poster" />
+                        </div>
+                    </div>
+                    <!--Cosmetics Field-->
+                    <div class="content-part">
+                        <div class="content-top">
+                            <div class="content-title">
+                                <h1 class="content-tag hover-red">#forlady</h1>
+                                <div class="for-image">
+                                    <img src="./Img/cosmetics/forlady.jpg" alt="" class="image" />
+                                </div>
+                            </div>
+                            <div class="content-list">
+                                <!-- Lipsticks -->
+                                <div class="product-row">
+                                    <asp:ListView ID="Lipsticks" runat="server">
+                                        <ItemTemplate>
+                                            <div class="product">
+                                                <a href="SingleProduct.aspx?id=<%#Eval("Id") %>">
+                                                    <div class="product-top">
+                                                        <img src="<%# Eval("Image")%>" alt="" class="product-image">
+                                                    </div>
+                                                </a>
+                                                <div class="product-info" style="border-top: 1px solid #333">
+                                                    <div class="product-left">
+                                                        <h3 class="product-name"><%# Eval("Name") %></h3>
+                                                        <h4 class="product-price"><%# Eval("Price") %></h4>
+                                                    </div>
+                                                    <div class="product-right">
+                                                        <a href="AddToCart.aspx?id=<%#Eval("Id") %>">
+                                                            <img src="./Img/icon/shopping-cart.png" alt="" class="add-to-cart" style="width: 50%" />
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </ItemTemplate>
+                                    </asp:ListView>
+                                </div>
+                                <!-- Perfumes -->
+                                <div class="product-row">
+                                    <asp:ListView ID="Perfumes" runat="server">
+                                        <ItemTemplate>
+                                            <div class="product">
+                                                <a href="SingleProduct.aspx?id=<%#Eval("Id") %>">
+                                                    <div class="product-top">
+                                                        <img src="<%# Eval("Image")%>" alt="" class="product-image">
+                                                    </div>
+                                                </a>
+                                                <div class="product-info" style="border-top: 1px solid #333">
+                                                    <div class="product-left">
+                                                        <h3 class="product-name"><%# Eval("Name") %></h3>
+                                                        <h4 class="product-price"><%# Eval("Price") %></h4>
+                                                    </div>
+                                                    <div class="product-right">
+                                                        <a href="AddToCart.aspx?id=<%#Eval("Id") %>">
+                                                            <img src="./Img/icon/shopping-cart.png" alt="" class="add-to-cart" style="width: 50%" />
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </ItemTemplate>
+                                    </asp:ListView>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-poster">
+                            <img src="Img/cosmetics/c-poster.png" class="f-poster" />
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </footer>
+            </main>
+            <!-- Footer -->
+            <footer class="footer">
+                <div class="footer-top">
+                    <div class="footer-body">
+                        <h4 class="font-larger">About Us</h4>
+                        <div class="footer-body hover-red">Infomation</div>
+                        <div class="footer-body hover-red">Store Location</div>
+                    </div>
+                    <div class="footer-body">
+                        <h4 class="font-larger">Help</h4>
+                        <div class="footer-body hover-red">FAQ</div>
+                        <div class="footer-body hover-red">Return Policy</div>
+                        <div class="footer-body hover-red">Privacy Policy</div>
+                        <div class="footer-body hover-red">Accessibility</div>
+                    </div>
+                    <div class="footer-body">
+                        <h4 class="font-larger">Account</h4>
+                        <div class="footer-body hover-red">Membership</div>
+                        <div class="footer-body hover-red">Profile</div>
+                        <div class="footer-body hover-red">Coupons</div>
+                    </div>
+                    <div class="footer-body">
+                        <h4 class="font-larger">Social Account</h4>
+                        <div class="social-img">
+                            <img src="./Img/icon/facebook.png" alt="Facebook" class="social-icon" />
+                            <img src="./Img/icon/instagram.png" alt="Instagram" class="social-icon" />
+                            <img src="./Img/icon/youtube.png" alt="Youtube" class="social-icon" />
+                            <img src="./Img/icon/tik-tok.png" alt="Tiktok" class="social-icon" />
+                        </div>
+                    </div>
+                </div>
+                <div class="footer">
+                    <div class="footer-bot">
+                        <div class="fbot-head">
+                            <h3 class="blur-text">Copyright @ Khong ai biet gi ca</h3>
+                            <div class="fbot-head-right">
+                                <h3 class="blur-text highlight hover-red">Terms of Use</h3>
+                                <h3 class="blur-text highlight hover-red">Privacy Policy</h3>
+                            </div>
+                        </div>
+                        <div class="fbot-title">Company Name: NameOfCompany</div>
+                        <div class="fbot-title">Enterprise Code: 0123456798</div>
+                        <div class="fbot-title">Address: 96 Dinh Cong</div>
+                        <div class="fbot-title">For any inquiry, please visit our FAQ page</div>
+                        <div class="fbot-title">Working Hours: 6h-22h</div>
+                    </div>
+                </div>
+            </footer>
         </div>
     </form>
 
     <script src="JS/Home.js"></script>
     <script src="JS/Slide.js"></script>
     <script src="JS/BurgerMenu.js"></script>
+    <script src="JS/HurryTime.js"></script>
 </body>
 </html>

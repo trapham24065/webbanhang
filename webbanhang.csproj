@@ -76,6 +76,7 @@
     <Content Include="src\CSS\Footer.css" />
     <Content Include="src\CSS\Header.css" />
     <Content Include="src\CSS\Home.css" />
+    <Content Include="src\CSS\Product.css" />
     <Content Include="src\CSS\SignIn.css" />
     <Content Include="src\CSS\SignUp.css" />
     <Content Include="src\CSS\Slide.css" />
@@ -121,6 +122,7 @@
     <Content Include="src\JS\BurgerMenu.js" />
     <Content Include="src\JS\Details.js" />
     <Content Include="src\JS\Home.js" />
+    <Content Include="src\JS\HurryTime.js" />
     <Content Include="src\JS\SignIn.js" />
     <Content Include="src\JS\SignUp.js" />
     <Content Include="src\JS\Slide.js" />
