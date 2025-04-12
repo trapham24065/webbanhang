@@ -7,7 +7,6 @@ namespace BTL.src
 {
     public class User
     {
-        //Khởi tạo class User cho từng Acc
         public string Username { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }

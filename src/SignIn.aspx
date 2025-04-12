@@ -12,23 +12,23 @@
        <div class="container">
         <div class="login-section">
             <div class="login-form">
-                <h2 class="slogan-login">Đăng nhập</h2>
+                <h2 class="slogan-login">Log in</h2>
                 <div class="input-form">
                     <input spellcheck="false" id="username" type="text"  name="username"/>
-                    <label for="username">Tên đăng nhập</label>
+                    <label for="username">Login name</label>
                 </div>
                 <p id="errorUsername" runat="server"></p>
                 <div class="input-form">
                     <input id="password" type="password" name="password"/>
-                    <label for="password">Mật khẩu</label>
+                    <label for="password">Password</label>
                 </div>
                 <p id="errorPassword" runat="server"></p>
 
-                <input class="btn-login" type="submit" value="Đăng nhập" />
+                <input class="btn-login" type="submit" value="Log in" />
 
                 <div class="action-account">
-                    <a href="#">Quên mật khẩu?</a>
-                    <a href="./SignUp.aspx">Tạo tài khoản mới</a>
+                    <a href="#">Forgot password?</a>
+                    <a href="./SignUp.aspx">Create a new account</a>
                 </div>
             </div>
         </div>

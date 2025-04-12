@@ -68,6 +68,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
+    <Content Include="src\AboutUs.aspx" />
+    <Content Include="src\CSS\AboutUs.css" />
+    <Content Include="src\JS\Product.js" />
+    <Content Include="src\Shop.aspx" />
     <Content Include="src\AddByDetails.aspx" />
     <Content Include="src\AddToCart.aspx" />
     <Content Include="src\Cart.aspx" />
@@ -140,6 +144,20 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="src\AboutUs.aspx.cs">
+      <DependentUpon>AboutUs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="src\AboutUs.aspx.designer.cs">
+      <DependentUpon>AboutUs.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="src\Shop.aspx.cs">
+      <DependentUpon>Shop.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="src\Shop.aspx.designer.cs">
+      <DependentUpon>Shop.aspx</DependentUpon>
+    </Compile>
     <Compile Include="src\AddByDetails.aspx.cs">
       <DependentUpon>AddByDetails.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

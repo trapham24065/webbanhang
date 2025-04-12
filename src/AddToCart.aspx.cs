@@ -12,11 +12,13 @@ namespace BTL.src
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //Gọi DS hàng hóa, DS User và vị trí của User đang đăng nhập
+            // Gọi DS hàng hóa, DS User và vị trí của User đang đăng nhập
             List<Product> ProductList = (List<Product>)Application["ProductList"];
             List<Product> ProductCart = (List<Product>)Application["ProductCart"];
-            //Lấy id từ queryString được gửi đến
-            string id = Request.QueryString.Get("id");
+
+            // Lấy id từ queryString, nếu không có thì mặc định là "1"
+            string id = Request.QueryString.Get("id") ?? "1"; // Nếu null thì gán "1"
+
             bool checkInCart = false;
             foreach (Product product in ProductCart)
             {
@@ -28,19 +30,20 @@ namespace BTL.src
                     break;
                 }
             }
-                //Nếu chưa có trong mặt hàng (!checkInCart) <=> (checkInCart == false) thì tìm mặt hàng đấy qua ID trong danh sách mặt hàng rồi thêm vào giỏ hàng của user
-                if (!checkInCart)
+
+            // Nếu chưa có trong giỏ hàng thì tìm mặt hàng đấy qua ID trong danh sách mặt hàng rồi thêm vào giỏ hàng của user
+            if (!checkInCart)
+            {
+                foreach (Product product in ProductList)
                 {
-                    foreach (Product product in ProductList)
+                    if (product.Id == int.Parse(id))
                     {
-                        if (product.Id == int.Parse(id))
-                        {
-                            ProductCart.Add(product);
-                            break;
-                        }
+                        ProductCart.Add(product);
+                        break;
                     }
-                    Response.Redirect("Home.aspx");
                 }
+                Response.Redirect("Home.aspx");
+            }
         }
     }
 }

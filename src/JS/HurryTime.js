@@ -1,6 +1,6 @@
 ﻿
     // Đặt thời gian kết thúc (ví dụ: 5 phút từ lúc tải trang)
-    var countdownTime = new Date().getTime() + 5 * 60 * 1000;
+    var countdownTime = new Date().getTime() + 15 * 60 * 1000;
 
     function updateCountdown() {
         var now = new Date().getTime();

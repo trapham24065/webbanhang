@@ -24,6 +24,7 @@
     position: fixed;
     top: 0;
     background-color: #fff;
+    z-index:1;
 }
 
 .format-header {
@@ -126,10 +127,9 @@
 
 .appear:hover .list-product-clothes {
     cursor: auto;
-    width: 80%;
+    width: 15%;
     border-radius: 8px;
     top: 100%;
-    left: 10%;
     position: absolute;
     padding: 10px 20px;
     background-color: white;

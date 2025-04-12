@@ -11,34 +11,57 @@ namespace BTL.src
     {//Xử lý trang chi tiết mặt hàng
         protected void Page_Load(object sender, EventArgs e)
         {
-            //Lấy User từ Session User
-            //Lấy danh sách User và thứ tự của User đang đăng nhập
+            // Lấy User từ Session
             User user = (User)Session["User"];
-            if (user.Username != null && user.Email != null)
-            {//Nếu đã đăng nhập thì hiện tên, email và nút đăng xuất
+            if (user != null && user.Username != null && user.Email != null)
+            {
                 userInfo.InnerHtml = "<p class=\"top\">" + user.Username + "</p><p class=\"bottom\">" + user.Email + "</p><p class=\"bottom\"><a href=\"SignOut.aspx\">Đăng Xuất</a></p>";
             }
+
             List<Product> ProductCart = (List<Product>)Application["ProductCart"];
-            //Gọi DS fix cứng data
             List<Product> ProductList = (List<Product>)Application["ProductList"];
-            //Lấy id của sản phẩm được click (qua QueryString)
+            List<Product> relatedProducts = new List<Product>();
+
             string id = Request.QueryString.Get("id");
-            //Tìm kiếm sản phẩm trong DS đc gọi
+            int currentId = int.Parse(id);
+            Product currentProduct = null;
+
+            // Tìm sản phẩm hiện tại và phân loại sản phẩm liên quan
             foreach (Product product in ProductList)
             {
-                //Thấy sản phẩm trùng ID thì tạo 1 ds khác, thêm sp và bind ra màn hình qua thẻ id = productData
-                if (product.Id == int.Parse(id)) 
+                if (product.Id == currentId)
                 {
-                    List<Product> Details = new List<Product>();
-                    Details.Add(product);
-                    productData.DataSource = Details;
-                    productData.DataBind();
-                    break;
+                    currentProduct = product;
                 }
             }
-            int countProduct = ProductCart.Count;
 
+            if (currentProduct != null)
+            {
+                // Hiển thị sản phẩm chính
+                List<Product> Details = new List<Product> { currentProduct };
+                productData.DataSource = Details;
+                productData.DataBind();
+
+                // Lấy nhóm liên quan theo nhóm ID (mỗi nhóm cách nhau 3)
+                int groupStart = ((currentId - 1) / 3) * 3 + 1;
+                int groupEnd = groupStart + 2;
+
+                foreach (Product product in ProductList)
+                {
+                    // Loại bỏ chính sản phẩm đang xem khỏi danh sách liên quan
+                    if (product.Id != currentId && product.Id >= groupStart && product.Id <= groupEnd)
+                    {
+                        relatedProducts.Add(product);
+                    }
+                }
+
+                // Bind danh sách sản phẩm liên quan
+                RelatedProducts.DataSource = relatedProducts;
+                RelatedProducts.DataBind();
+            }
+
+            int countProduct = ProductCart.Count;
             CartCounter.InnerHtml = $"{countProduct}";
         }
     }
-}
+    }

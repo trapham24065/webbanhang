@@ -11,7 +11,7 @@ function showSlides() {
     if (slideIndex > slides.length) { slideIndex = 1 }
     slides[slideIndex - 1].style.display = "block";
 
-    timer = setTimeout(showSlides, 3000); // Chạy sau mỗi 3 giây
+    timer = setTimeout(showSlides, 4000); // Chạy sau mỗi 3 giây
 }
 
 // Hàm đổi slide khi nhấn Next/Prev

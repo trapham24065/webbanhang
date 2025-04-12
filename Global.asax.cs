@@ -16,9 +16,7 @@ namespace BTL
             //Tạo Application User và thêm data cứng (chỉ dùng để test)
             Application["Users"] = new List<User>();
             List<User> Users = (List<User>)Application["Users"];
-            Users.Add(new User("QuangAnh", "ngquanganh11a1@gmail.com", "181003"));
-            Users.Add(new User("Trang", "trang@gmail.com", "1"));
-            Users.Add(new User("Nam", "nam@gmail.com", "1"));
+            Users.Add(new User("admin", "trapham24065@gmail.com", "123456"));
             //Application["countCheck"] = new int();
             //int countCheck = (int)Application["countCheck"];
             //countCheck = 0;
@@ -28,26 +26,26 @@ namespace BTL
             Application["ProductCart"] = new List<Product>();
             List<Product> ProductCart = (List<Product>)Application["ProductCart"];
 
-            ProductList.Add(new Product(1,"Women Shirt", "This is a shirt for women","./Img/women/women-shirt-1.jpg", 100000,1));
-            ProductList.Add(new Product(2, "Women Shirt", "This is a shirt for women", "./Img/women/women-shirt-2.jpg", 200000, 1));
-            ProductList.Add(new Product(3, "Women Shirt", "This is a shirt for women", "./Img/women/women-shirt-3.jpg", 300000, 1));
-            ProductList.Add(new Product(4, "Women Trouser", "This is a trouser for women", "./Img/women/women-pants-1.jpg", 100000, 1));
-            ProductList.Add(new Product(5, "Women Trouser", "This is a trouser for women", "./Img/women/women-pants-2.jpg", 200000, 1));
-            ProductList.Add(new Product(6, "Women Skirt", "This is a skirt for women", "./Img/women/women-pants-3.jpg", 300000, 1));
+            ProductList.Add(new Product(1,"Women Shirt", "This is a shirt for women","./Img/women/women-shirt-1.jpg", 100000,1,"sk1"));
+            ProductList.Add(new Product(2, "Women Shirt", "This is a shirt for women", "./Img/women/women-shirt-2.jpg", 200000, 1, "sk2"));
+            ProductList.Add(new Product(3, "Women Shirt", "This is a shirt for women", "./Img/women/women-shirt-3.jpg", 300000, 1, "sk3"));
+            ProductList.Add(new Product(4, "Women Trouser", "This is a trouser for women", "./Img/women/women-pants-1.jpg", 100000, 1, "sk4"));
+            ProductList.Add(new Product(5, "Women Trouser", "This is a trouser for women", "./Img/women/women-pants-2.jpg", 200000, 1, "sk5"));
+            ProductList.Add(new Product(6, "Women Skirt", "This is a skirt for women", "./Img/women/women-pants-3.jpg", 300000, 1, "sk6"));
 
-            ProductList.Add(new Product(7, "Men Shirt", "This is a shirt for men", "./Img/men/men-shirt-1.jpg", 100000, 1));
-            ProductList.Add(new Product(8, "Men Shirt", "This is a shirt for men", "./Img/men/men-shirt-2.jpg", 200000, 1));
-            ProductList.Add(new Product(9, "Men Shirt", "This is a shirt for men", "./Img/men/men-shirt-3.jpg", 300000, 1));
-            ProductList.Add(new Product(10, "Men Pants", "This is a trouser for men", "./Img/men/men-trousers-1.jpg", 100000, 1));
-            ProductList.Add(new Product(11, "Men Pants", "This is a trouser for men", "./Img/men/men-trousers-2.jpg", 200000, 1));
-            ProductList.Add(new Product(12, "Men Pants", "This is a trouser for men", "./Img/men/men-trousers-3.jpg", 300000, 1));
+            ProductList.Add(new Product(7, "Men Shirt", "This is a shirt for men", "./Img/men/men-shirt-1.jpg", 100000, 1, "sk7"));
+            ProductList.Add(new Product(8, "Men Shirt", "This is a shirt for men", "./Img/men/men-shirt-2.jpg", 200000, 1, "sk8"));
+            ProductList.Add(new Product(9, "Men Shirt", "This is a shirt for men", "./Img/men/men-shirt-3.jpg", 300000, 1, "sk9"));
+            ProductList.Add(new Product(10, "Men Pants", "This is a trouser for men", "./Img/men/men-trousers-1.jpg", 100000, 1, "sk10"));
+            ProductList.Add(new Product(11, "Men Pants", "This is a trouser for men", "./Img/men/men-trousers-2.jpg", 200000, 1, "sk11"));
+            ProductList.Add(new Product(12, "Men Pants", "This is a trouser for men", "./Img/men/men-trousers-3.jpg", 300000, 1, "sk12"));
 
-            ProductList.Add(new Product(13, "Lipstick", "This is a lipstick", "./Img/cosmetics/lipstick-1.jpg", 100000, 1));
-            ProductList.Add(new Product(14, "Lipstick", "This is a lipstick", "./Img/cosmetics/lipstick-2.jpg", 200000, 1));
-            ProductList.Add(new Product(15, "Lipstick", "This is a lipstick", "./Img/cosmetics/lipstick-3.jpg", 300000, 1));
-            ProductList.Add(new Product(16, "Perfume", "This is a perfume", "./Img/cosmetics/perfume-1.jpg", 100000, 1));
-            ProductList.Add(new Product(17, "Perfume", "This is a perfume", "./Img/cosmetics/perfume-2.jpg", 200000, 1));
-            ProductList.Add(new Product(18, "Perfume", "This is a perfume", "./Img/cosmetics/perfume-3.jpg", 300000, 1));
+            ProductList.Add(new Product(13, "Lipstick", "This is a lipstick", "./Img/cosmetics/lipstick-1.jpg", 100000, 1, "sk13"));
+            ProductList.Add(new Product(14, "Lipstick", "This is a lipstick", "./Img/cosmetics/lipstick-2.jpg", 200000, 1, "sk14"));
+            ProductList.Add(new Product(15, "Lipstick", "This is a lipstick", "./Img/cosmetics/lipstick-3.jpg", 300000, 1, "sk15"));
+            ProductList.Add(new Product(16, "Perfume", "This is a perfume", "./Img/cosmetics/perfume-1.jpg", 100000, 1, "sk16"));
+            ProductList.Add(new Product(17, "Perfume", "This is a perfume", "./Img/cosmetics/perfume-2.jpg", 200000, 1, "sk17"));
+            ProductList.Add(new Product(18, "Perfume", "This is a perfume", "./Img/cosmetics/perfume-3.jpg", 300000, 1, "sk18"));
         }
         protected void Session_Start(object sender, EventArgs e)
         {

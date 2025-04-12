@@ -39,7 +39,7 @@ namespace BTL.src
                 {
                     if (product.Id == int.Parse(id) )
                     {
-                        Product p = new Product(product.Id, product.Name, product.Description, product.Image, product.Price, int.Parse(quantities));
+                        Product p = new Product(product.Id, product.Name, product.Description, product.Image, product.Price, int.Parse(quantities),product.Sku);
                         p.Size = size;
                         ProductCart.Add(p);
                         break;

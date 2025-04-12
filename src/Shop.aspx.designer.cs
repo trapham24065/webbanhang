@@ -7,21 +7,12 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace BTL.src
+namespace BTL
 {
 
 
-    public partial class SingleProduct
+    public partial class Shop
     {
-
-        /// <summary>
-        /// form1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
         /// userInfo control.
@@ -42,21 +33,12 @@ namespace BTL.src
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl CartCounter;
 
         /// <summary>
-        /// productData control.
+        /// Clother control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView productData;
-
-        /// <summary>
-        /// RelatedProducts control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView RelatedProducts;
+        protected global::System.Web.UI.WebControls.ListView Clother;
     }
 }

@@ -12,10 +12,10 @@
         <div class="container">
         <div class="login-section">
             <div class="login-form">
-                <h2 class="slogan-login">Đăng kí</h2>
+                <h2 class="slogan-login">Register</h2>
                 <div class="input-form">
                     <input spellcheck="false" id="username" type="text" name="username"/>
-                    <label for="username">Tên đăng nhập</label>
+                    <label for="username">input name</label>
                 </div>
                 <p id="errorUsername" runat="server"></p>
                 <div class="input-form">
@@ -25,21 +25,21 @@
                 <p id="errorEmail" runat="server"></p>
                 <div class="input-form">
                     <input id="password" type="password" />
-                    <label for="password">Mật khẩu</label>
+                    <label for="password">Password</label>
                 </div>
                 <p id="errorPassword" runat="server"></p>
 
                 <div class="input-form">
                     <input id="confirm-password" type="password"  name="password"/>
-                    <label for="confirm-password">Nhập lại mật khẩu</label>
+                    <label for="confirm-password">Re-enter the password</label>
                 </div>
 
                 <p id="errorConfirmPassword"></p>
-                <input class="btn-login" type="submit" value="Đăng kí" />
+                <input class="btn-login" type="submit" value="Register" />
 
                 <div class="action-account">
-                    <a href="#">Quên mật khẩu?</a>
-                    <a href="./SignIn.aspx">Đã có tài khoản? Đăng nhập ngay</a>
+                    <a href="#">Forgot password?</a>
+                    <a href="./SignIn.aspx">Already have an account? Sign in now</a>
                 </div>
             </div>
         </div>

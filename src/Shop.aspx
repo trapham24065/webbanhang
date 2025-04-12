@@ -1,24 +1,75 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Cart.aspx.cs" Inherits="BTL.src.Cart" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Shop.aspx.cs" Inherits="BTL.Shop" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>Cart</title>
-    <link rel="stylesheet" href="CSS/Cart.css" />
+    <title>Shop</title>
+    <link rel="stylesheet" href="CSS/Home.css" />
     <link rel="stylesheet" href="CSS/Header.css" />
+    <link rel="stylesheet" href="CSS/Slide.css" />
+    <link rel="stylesheet" href="CSS/Product.css" />
     <link rel="stylesheet" href="CSS/Footer.css" />
+    <style>
+        .locsanpham {
+              display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            background: #f8f8f8;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+          .filters select, .filters input, .filters button {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .filters {
+            display: flex;
+            gap: 10px;
+        }
+        .content-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-evenly;
+}
+
+@media (min-width: 1200px) {
+    .product {
+        width: calc(20% - 20px);
+    }
+}
+
+@media (max-width: 992px) {
+    .product {
+        width: calc(33.333% - 20px);
+    }
+}
+
+@media (max-width: 768px) {
+    .product {
+        width: calc(50% - 20px);
+    }
+}
+
+@media (max-width: 480px) {
+    .product {
+        width: 100%;
+    }
+}
+
+
+
+    </style>
 </head>
 <body>
-    <form id="form1" runat="server">
-        <div id="cart">
-        <!-- Header -->
-                       <!-- Header -->
+            <!-- Header -->
             <header class="header">
                 <nav class="navbar">
                     <div class="format-header">
                         <div class="nav-left">
-                            <a href="#home" class="logo-layer">
+                            <a href="./Home.aspx" class="logo-layer">
                                 <img src="./Img/icon/logo.png" alt="Logo" class="logo" /></a>
                             <ul class="navigator">
                                 <li class="nav-selector"><a style="text-decoration: none; color: black" href="./Home.aspx">Home</a></li>
@@ -89,48 +140,47 @@
                     </div>
                 </nav>
             </header>
-            <!-- Body -->
-            <main>
-                <div class="content">
-                    <div class="table-hnf">
-                        <div class="layer-name">Sản phẩm</div>
-                        <div class="layer-price">Giá</div>
-                        <div class="layer-quantities">Số lượng</div>
-                        <div class="layer-money">Tổng tiền</div>
-                    </div>
-                    <div class="table-body" id="tableBody">
-                        <!-- Danh sách hàng hóa của giỏ hàng -->
-                        <!-- Những cái dạng Eval("") là data đc truyền vào thông qua DataSource và DataBind trong file .cs -->
-                        <asp:ListView ID="cartList" runat="server">
-                            <ItemTemplate>
-                                <div class="border-outside info-product-cart">
-                                    <a class="layer-name" href="SingleProduct.aspx?id=<%# Eval("Id") %>">
-                                        <div class="i-layer">
-                                            <img src="<%# Eval("Image")%>" class="c-img"/>
-                                            <div class="resize name-product"><%# Eval("Name") %> - <%# Eval("Size") %></div>
-                                        </div>
-                                    </a>
-                                    <div class="layer-price resize w-100"><%# Eval("Price") %> đ</div>
-                                    <div class="layer-quantities resize dis-flex amount">
-                                        <a href="ProductDecrease.aspx?id=<%#Eval("Id") %>" class="quantity-width"><div class="btn-change-amount">-</div></a>
-                                        <div class="quantity-width amount-value"><%# Eval("Quantity") %></div>
-                                        <a href="ProductIncrease.aspx?id=<%#Eval("Id") %>" class="quantity-width"><div class="btn-change-amount">+</div></a>
+    <main>
+     
+        <div class="content-list">
+            <h1>Shop</h1>
+           <div class="content-part">
+    <div class="content-top">
+
+        <div class="content-list">
+            <div class="product-row">
+                <asp:ListView ID="Clother" runat="server">
+                    <ItemTemplate>
+                        <div class="product">
+                            <a href="SingleProduct.aspx?id=<%#Eval("Id") %>">
+                                <div class="product-top">
+                                    <img src="<%# Eval("Image")%>" alt="" class="product-image">
+                                    <div class="overlay">
+                                        <h3 class="product-name" id="pName"><%# Eval("Name") %></h3>
+                                        <h4 class="product-price" id="pPrice"><%# Eval("Price") %></h4>
                                     </div>
-                                    <div class="layer-money resize total-price-product"><%# Eval("Total") %> Đ</div>
-                                    <a href="ProductDeletion.aspx?id=<%#Eval("Id") %>"><div class="delete">x</div></a>
+
                                 </div>
-                            </ItemTemplate>
-                         </asp:ListView>
-                    </div>
-                    <div class="d-total">
-                        <div class="total">Tổng thanh toán</div>
-                        <div class="total-price" id="TotalPrices" runat="server">0</div>
-                        <div class="payment">Thanh toán</div>
-                    </div>
-                </div>
-            </main>
-            <!-- Footer -->
-            <footer class="footer">
+                            </a>
+                            <div class="product-info">
+                                <h3 class="product-name" id="pName"><%# Eval("Name") %></h3>
+                                <h4 class="product-price" id="pPrice"><%# Eval("Price") %></h4>
+                                <a href="AddToCart.aspx?id=<%#Eval("Id") %>" class="cart-btn">
+                                    <img src="./Img/icon/shopping-cart.png" alt="" class="add-to-cart" />
+                                    Add to cart</a>
+                            </div>
+                        </div>
+                    </ItemTemplate>
+                </asp:ListView>
+            </div>  
+        </div>
+    </div>
+    <div class="product-poster">
+        <img src="Img/women/w-poster.png" class="f-poster" />
+    </div>
+</div>
+        </div>
+        <footer class="footer">
             <div class="footer-top">
                 <div class="footer-body">
                     <h4 class="font-larger">About Us</h4>
@@ -153,33 +203,49 @@
                 <div class="footer-body">
                     <h4 class="font-larger">Social Account</h4>
                     <div class="social-img">
-                        <img src="./Img/icon/facebook.png" alt="Facebook" class="social-icon"/>
-                        <img src="./Img/icon/instagram.png" alt="Instagram" class="social-icon"/>
-                        <img src="./Img/icon/youtube.png" alt="Youtube" class="social-icon"/>
-                        <img src="./Img/icon/tik-tok.png" alt="Tiktok" class="social-icon"/>
+                        <img src="./Img/icon/facebook.png" alt="Facebook" class="social-icon" />
+                        <img src="./Img/icon/instagram.png" alt="Instagram" class="social-icon" />
+                        <img src="./Img/icon/youtube.png" alt="Youtube" class="social-icon" />
+                        <img src="./Img/icon/tik-tok.png" alt="Tiktok" class="social-icon" />
                     </div>
                 </div>
             </div>
             <div class="footer">
-            <div class="footer-bot">
-                <div class="fbot-head">
-                    <h3 class="blur-text">Copyright @ Khong ai biet gi ca</h3>
-                    <div class="fbot-head-right">
-                        <h3 class="blur-text highlight hover-red">Terms of Use</h3>
-                        <h3 class="blur-text highlight hover-red">Privacy Policy</h3>
+                <div class="footer-bot">
+                    <div class="fbot-head">
+                        <h3 class="blur-text">Copyright @ Khong ai biet gi ca</h3>
+                        <div class="fbot-head-right">
+                            <h3 class="blur-text highlight hover-red">Terms of Use</h3>
+                            <h3 class="blur-text highlight hover-red">Privacy Policy</h3>
+                        </div>
                     </div>
+                    <div class="fbot-title">Company Name: NameOfCompany</div>
+                    <div class="fbot-title">Enterprise Code: 0123456798</div>
+                    <div class="fbot-title">Address: 96 Dinh Cong</div>
+                    <div class="fbot-title">For any inquiry, please visit our FAQ page</div>
+                    <div class="fbot-title">Working Hours: 6h-22h</div>
                 </div>
-                <div class="fbot-title">Company Name: NameOfCompany</div>
-                <div class="fbot-title">Enterprise Code: 0123456798</div>
-                <div class="fbot-title">Address: 96 Dinh Cong</div>
-                <div class="fbot-title">For any inquiry, please visit our FAQ page</div>
-                <div class="fbot-title">Working Hours: 6h-22h</div>
-            </div>
             </div>
         </footer>
-        </div>
-    </form>
-    <script src="JS/Home.js"></script>
-    <script src="JS/BurgerMenu.js"></script>
+    </main>
+    <script>
+        function filterProducts() {
+            let category = document.getElementById("categoryFilter").value;
+            let minPrice = parseFloat(document.getElementById("minPrice").value) || 0;
+            let maxPrice = parseFloat(document.getElementById("maxPrice").value) || Infinity;
+
+            document.querySelectorAll(".product").forEach(product => {
+                let productCategory = product.getAttribute("data-category");
+                let productPrice = parseFloat(product.getAttribute("data-price"));
+
+                if ((category === "all" || productCategory === category) &&
+                    (productPrice >= minPrice && productPrice <= maxPrice)) {
+                    product.style.display = "block";
+                } else {
+                    product.style.display = "none";
+                }
+            });
+        }
+    </script>
 </body>
 </html>
